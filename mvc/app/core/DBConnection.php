@@ -4,7 +4,7 @@ class DBConnection{
 
 	private $_DBUser = 'root';
 	private $_DBPass = '';
-	private $_DBName = 'test';
+	private $_DBName = '';
 
 	public function __construct(){
         $this->connection = new PDO('mysql:host=localhost;dbname=' . $this->_DBName, $this->_DBUser, $this->_DBPass);
