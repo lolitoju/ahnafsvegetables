@@ -1,0 +1,13 @@
+#bg1 {
+	width: 200px;
+	height: 200px;
+	background-image: url("../images/img1.jpg");
+	background-position: center;
+	border-radius: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#bg1:hover {
+	opacity: 0.8;
+}

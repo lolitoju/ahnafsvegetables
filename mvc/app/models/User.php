@@ -3,7 +3,6 @@
 class User
 {
 	public $fname;
-	public $mname;
 	public $lname;
 	public $email;
 

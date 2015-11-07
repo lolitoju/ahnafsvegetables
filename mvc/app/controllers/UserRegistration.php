@@ -8,12 +8,11 @@ class UserRegistration extends Controller{
 		$DBConn = new DBConnection();
 		if(isset($_POST['action']) && $_POST['action'] == 'Add user'){
 			$user->fname = $_POST['fname'];
-			$user->mname = $_POST['mname'];
 			$user->lname = $_POST['lname'];
 			$user->email = $_POST['email'];
 
 			if($user->isValid()){
-				$stmt = $DBConn->connection->prepare('INSERT INTO User(fname, mname, lname, email) VALUES (:fname, :mname, :lname, :email)');
+				$stmt = $DBConn->connection->prepare('INSERT INTO users(fname, lname, email) VALUES (:fname, :lname, :email)');
 				$stmt->execute((array)$user);
 				$message = 'Good data!';
 			}else{
@@ -22,7 +21,7 @@ class UserRegistration extends Controller{
 
 		}
 
-		$stmt = $DBConn->connection->prepare('SELECT ID, fname, mname, lname, email FROM User');
+		$stmt = $DBConn->connection->prepare('SELECT ID, fname, lname, email FROM users');
 		$stmt->execute();
 		$stmt->setFetchMode (PDO::FETCH_CLASS , 'User');
 
@@ -41,11 +40,11 @@ class UserRegistration extends Controller{
 		if(isset($_POST['action']) && $_POST['action'] == 'Delete'){
 			$DBConn = new DBConnection();
 			$ID = $_POST['ID'];
-			$stmt = $DBConn->connection->prepare('DELETE FROM User WHERE ID = ?');
+			$stmt = $DBConn->connection->prepare('DELETE FROM users WHERE ID = ?');
 			$stmt->execute(array($ID));
 		}
 
-		header('location:/UserRegistration');
+		header('Refresh');
 	}
 
 

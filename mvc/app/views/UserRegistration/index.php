@@ -12,10 +12,10 @@
 </form>
 
 <table>
-<tr><th>First Name</th><th>Middle Name</th><th>Last Name</th><th>Email</th><th>DELETE</th></tr>
+<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>DELETE</th></tr>
 <?php
 	foreach($data['users'] as $user)
-		echo "<tr><td>$user->fname</td><td>$user->mname</td><td>$user->lname</td><td>$user->email</td>
+		echo "<tr><td>$user->fname</td><td>$user->lname</td><td>$user->email</td>
 	<td>
 	<form method='post' action='UserRegistration/delete'><input type='hidden' name='ID' value='$user->ID' />
 	<input type='submit' name='action' value='Delete' /></form></td></tr>";
